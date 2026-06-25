@@ -1,1 +1,25 @@
-name: test
+name: CI
+
+on: 
+    workflow_dispatch
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v7
+
+            - name: Install node js
+              uses: actions/setup-node@v6
+              with:
+                node-version: 20
+
+            - name: start the app
+              run: npm start
+
+            - name: Wait for the application to boot
+              run: sleep 5
+
+            - name: Check Health
+              run: curl -I "http://localhost:3000/health" || exit 1
