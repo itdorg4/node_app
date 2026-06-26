@@ -4,10 +4,11 @@ on: workflow_dispatch
 
 jobs:
     job:
-        runs-on: ubuntu-latest
+        runs-on: ${{ matrix.os }}
         strategy:
             matrix:
                 version: [16, 18, 20]
+                os: [ubuntu-latest, windows-latest]
         steps:
             - name: Install Node
               uses: actions/setup-node@v6
