@@ -19,19 +19,33 @@ on:
                 default: "v1.0.0"
 
 env:
-    TYPE_OF_APP: "1 Tire App"
+    GLOABL_ENV: "1 Tire App"
 
 
 jobs:
-    show-the-variables:
+    job1:
         runs-on: ubuntu-latest
+        env:
+            JOB1_ENV : "1 Tire App"
         steps:
             - name: Display Inputs
               run: |
                 echo "Run Environment: ${{inputs.environment}}"
                 echo "App Version: ${{inputs.version}}"
 
-
-            - name: Environment Variable
+            - name: Global Environment Variable
               run: |
-                echo "Environment: $TYPE_OF_APP"
+                echo "Environment: $GLOABL_ENV"
+
+            - name: Job1 Env Variable
+              run: |
+                echo "Environment: $JOB1_ENV"
+
+    job2:
+        runs-on: ubuntu-latest
+        env:
+            JOB2_ENV : "Monolithic"
+        steps:
+            - name: Job2 Env Variable
+              run: |
+                echo "Environment: $JOB2_ENV"
