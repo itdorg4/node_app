@@ -18,6 +18,9 @@ on:
                 required: true
                 default: "v1.0.0"
 
+env:
+    TYPE_OF_APP: "1 Tire App"
+
 
 jobs:
     show-the-variables:
@@ -25,5 +28,10 @@ jobs:
         steps:
             - name: Display Inputs
               run: |
-                echo "Environment: ${{inputs.environment}}"
+                echo "Run Environment: ${{inputs.environment}}"
                 echo "App Version: ${{inputs.version}}"
+
+
+            - name: Environment Variable
+              run: |
+                echo "Environment: $TYPE_OF_APP"
