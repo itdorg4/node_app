@@ -15,7 +15,7 @@ jobs:
             - name: job2
               run: sleep 3
     job3:
-        needs: job1
+        needs: job2
         runs-on: ubuntu-latest
         steps:
             - name: job3
