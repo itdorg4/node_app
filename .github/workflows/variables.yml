@@ -24,7 +24,7 @@ env:
 
 jobs:
     job1:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest 
         env:
             JOB1_ENV : "Something!!"
         steps:
@@ -55,5 +55,5 @@ jobs:
         steps:
             - name: Print Repo Sect and Variables
               run: |
-                echo "Github Repo Secret: ${{ vars.SECRET_KEY_DEVOPS_JUNE_2026 }}"
+                echo "Github Repo Secret: ${{ secrets.SECRET_KEY_DEVOPS_JUNE_2026 }}"
                 echo "Github Repo Variable: ${{ vars.SOME_VARIABLE_DEVOPS_JUNE_2026 }}"
