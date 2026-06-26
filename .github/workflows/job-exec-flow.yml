@@ -7,7 +7,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: job1
-              run: sleep 3
+              run: exit 1
     job2:
         needs: job1
         runs-on: ubuntu-latest
