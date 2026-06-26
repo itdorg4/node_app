@@ -25,4 +25,4 @@ jobs:
               run: sleep 5
 
             - name: Check Health
-              run: exit 1
+              run: curl -I "http://localhost:3000" || exit 1
