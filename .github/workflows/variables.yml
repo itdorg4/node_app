@@ -26,7 +26,7 @@ jobs:
     job1:
         runs-on: ubuntu-latest
         env:
-            JOB1_ENV : "1 Tire App"
+            JOB1_ENV : "Something!!"
         steps:
             - name: Display Inputs
               run: |
@@ -49,3 +49,11 @@ jobs:
             - name: Job2 Env Variable
               run: |
                 echo "Environment: $JOB2_ENV"
+
+    job3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Repo Sect and Variables
+              run: |
+                echo "Github Repo Secret: ${{ secrets.SECRET_KEY_DEVOPS_JUNE_2026 }}"
+                echo "Github Repo Variable: ${{ vars.SOME_VARIABLE_DEVOPS_JUNE_2026 }}"
