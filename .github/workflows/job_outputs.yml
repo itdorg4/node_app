@@ -1,16 +1,28 @@
 name: ouputs
 
-on:
-    workflow_dispatch
+on: push
 
 jobs:
     job1:
         runs-on: ubuntu-latest
+        outputs:
+            job1_output: ${{ steps.step2.outputs.msg }}
         
         steps:
             - name: set a variable
               id: step1
-              run: echo "msg=Itd from Step1 " >> $GITHUB_OUTPUT
+              run: echo "msg=Its from Step1 " >> $GITHUB_OUTPUT
 
             - name: get step1 variable
               run: echo "The out from step1 ===> ${{ steps.step1.outputs.msg }}"
+
+            - name: set another variable
+              id: step2
+              run: echo "msg=DATA 2 " >> $GITHUB_OUTPUT
+
+    job2:
+        needs: job1
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get the data from job1
+              run: echo "The ouput from Job1 is ${{needs.job1.outputs.job1_output}}"
