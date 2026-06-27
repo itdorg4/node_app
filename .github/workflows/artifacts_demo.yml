@@ -27,6 +27,7 @@ jobs:
               with:
                 run-id: 28278166804
                 path: ./build
+                github-token: ${{secrets.GIT_TOKEN}}
 
             - name: display the contents
               run: |
