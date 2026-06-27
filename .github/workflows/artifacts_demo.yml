@@ -26,7 +26,6 @@ jobs:
               uses: actions/download-artifact@v8
               with:
                 run-id: 28278166804
-                name: build-output
                 path: ./build
 
             - name: display the contents
