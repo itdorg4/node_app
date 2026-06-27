@@ -1,4 +1,4 @@
-name: sequential jobs
+name: selective jobs
 
 on: 
     workflow_dispatch:
