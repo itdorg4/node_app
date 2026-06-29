@@ -3,19 +3,20 @@ name: Artifacts
 on: push
 
 jobs:
-    # job1:
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Create files
-    #           run: |
-    #             mkdir build
-    #             echo "This is test build!!" > build/info.txt
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create files
+              run: |
+                mkdir build
+                echo "This is test build!!" > build/info.txt
+                python push2s3.py
 
-    #         - name: upload the build folder
-    #           uses: actions/upload-artifact@v7
-    #           with:
-    #             name: build-output
-    #             path: build/
+            - name: upload the build folder
+              uses: actions/upload-artifact@v7
+              with:
+                name: build-output
+                path: build/
 
 
     job2:

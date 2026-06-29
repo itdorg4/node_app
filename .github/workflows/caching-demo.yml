@@ -1,0 +1,31 @@
+name: Caching
+
+on: workflow_dispatch
+
+jobs:
+    demo:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Cache
+              id: cache
+              uses: actions/cache@v6
+              with:
+                path: data
+                key: my-cache-v1
+
+            - name: Time Consuming Activity
+              if: steps.cache.outputs.cache-hit != 'true'
+              run: |
+                echo "No cache yet, -- slow operation started!!"
+                sleep 25
+                mkdir data
+                echo "Some Data" > data/file.txt
+                echo "slow operation task!!!"
+
+            - name: Read the file
+              run: cat data/file.txt
+
+            
+
+
