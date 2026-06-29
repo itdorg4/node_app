@@ -8,7 +8,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
+
+              GITHUB_TOKEN
+              
 
             - name: Install node js
               uses: actions/setup-node@v4

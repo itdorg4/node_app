@@ -1,0 +1,32 @@
+name: Caching Npm
+
+on: workflow_dispatch
+
+jobs:
+    demo:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Checkout the code
+              uses: actions/checkout@v7
+
+            - name: Install Nodejs
+              uses: actions/setup-node@v6
+              with:
+                node-version: '20'
+
+            - name: Cache
+              id: cache
+              uses: actions/cache@v6
+              with:
+                path: ~/.npm
+                key: ${{runner.os}}-npm-${{hashFiles('node_application/package.json')}}
+                resore-path: |
+                  ${{runner.os}}-npm-
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Run Applicaion
+              run: npm start
+
