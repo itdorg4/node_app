@@ -9,7 +9,7 @@ jobs:
         steps:
             - name: Run the demo action
               id: demo
-              uses: ./.github/actions/demo/action
+              uses: ./.github/actions/demo
               with:
                 who-to-greet: "Virat"
 
