@@ -11,7 +11,7 @@ inputs:
 outputs:
   demo-output:
     description: 'Result from this custom action'
-    value: ${{  steps.set_output.output.result }}
+    value: ${{  steps.set_output.outputs.result }}
 
 runs:
   using: 'composite'
