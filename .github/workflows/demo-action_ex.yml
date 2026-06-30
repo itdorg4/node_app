@@ -7,6 +7,9 @@ jobs:
     job1:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout
+              uses: actions/checkout@v7
+
             - name: Run the demo action
               id: demo
               uses: ./.github/actions/demo
