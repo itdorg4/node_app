@@ -1,6 +1,6 @@
 name: ouputs
 
-on: push
+on: workflow_dispatch
 
 jobs:
     job1:

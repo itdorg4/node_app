@@ -1,0 +1,19 @@
+name: Demo Composite Action
+
+on: workflow_dispatch
+
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run the demo action
+              id: demo
+              uses: ./.github/actions/demo/action
+              with:
+                who-to-greet: "Virat"
+
+
+            - name: Display the output
+              run: "Output = ${{steps.demo.outputs.result}}" 
+

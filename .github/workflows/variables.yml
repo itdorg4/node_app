@@ -57,3 +57,14 @@ jobs:
               run: |
                 echo "Github Repo Secret: ${{ secrets.SECRET_KEY_DEVOPS_JUNE_2026 }}"
                 echo "Github Repo Variable: ${{ vars.SOME_VARIABLE_DEVOPS_JUNE_2026 }}"
+
+
+
+    job3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Repo Sect and Variables
+              run: |
+                npm start
+
+

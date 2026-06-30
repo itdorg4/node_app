@@ -10,15 +10,12 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v7
 
-              GITHUB_TOKEN
-              
-
             - name: Install node js
               uses: actions/setup-node@v4
               with:
                 node-version: 20
 
-            - name: Install Dependancies
+            - name: Install Dependanc`ies
               run: npm ci
 
             - name: start the app
@@ -29,3 +26,8 @@ jobs:
 
             - name: Check Health
               run: curl -I "http://localhost:3000" || exit 1
+
+            - name: Install node js
+              uses: ./.github/actions/greet.yml
+              with:
+                node-version: 20
